@@ -7,6 +7,9 @@ SRC = 	minesweeper.c \
 		exit.c \
 		load_sprite.c \
 		map.c \
+		load_map.c \
+		key_hook.c \
+		mouse_hook.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:31:03 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/17 19:47:39 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:10:48 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_texture
 	void	*exploded;
 	void	*flag;
 	void	*face;
+	void	*empty;
 }				t_texture;
 
 typedef struct s_data
@@ -44,7 +45,10 @@ typedef struct s_data
 	int			rows;
 	int			cols;
 	int			mines;
+	int			lose;
+	int			flag;
 	int			**map;
+	int			**visible;
 	t_texture	*texture;
 }				t_data;
 
@@ -60,8 +64,17 @@ int		close_window(t_data *data);
 void	load_texture(t_data *data);
 
 // map.c
-void	place_mines(t_data *data);
 void	print_map(t_data *data);
-void	print_mines(t_data *data);
+
+// load_map.c
+void	load_map(t_data *data);
+
+// key_hook.c
+int		key_hook(int keycode, t_data *data);
+void	win(t_data *data);
+void	lost(t_data *data);
+
+// mouse_hook.c
+int		mouse_hook(int button, int x, int y, t_data *data);
 
 #endif

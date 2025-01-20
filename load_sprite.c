@@ -6,7 +6,7 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:22:30 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/17 18:06:31 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/18 14:50:07 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ static void	load_mine(t_texture *texture, void *mlx, t_data *data)
 			&(int){0}, &(int){0});
 	if (!texture->face)
 		print_error("Failed to load face texture", data);
+	texture->empty = mlx_xpm_file_to_image(mlx, "Tiles/TileEmpty.xpm", \
+			&(int){0}, &(int){0});
+	if (!texture->empty)
+		print_error("Failed to load empty texture", data);
 }
 
 void	load_texture(t_data *data)

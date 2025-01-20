@@ -6,11 +6,29 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:50:14 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/17 19:47:09 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/20 10:15:44 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minesweeper.h"
+
+static void	init_visible(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	data->visible = (int **)malloc(sizeof(int *) * data->rows);
+	if (!data->visible)
+		print_error("Failed to allocate memory for visible", data);
+	while (i < data->rows)
+	{
+		data->visible[i] = (int *)malloc(sizeof(int) * data->cols);
+		if (!data->visible[i])
+			print_error("Failed to allocate memory for visible", data);
+		ft_bzero(data->visible[i], sizeof(int) * data->cols);
+		i++;
+	}
+}
 
 static void	init(t_data *data, char **argv)
 {
@@ -27,7 +45,7 @@ static void	init(t_data *data, char **argv)
 	if (!data->texture)
 		print_error("Failed to allocate memory for texture", data);
 	data->map = (int **)malloc(sizeof(int *) * data->rows);
-	if(!data->map)
+	if (!data->map)
 		print_error("Failed to allocate memory for map", data);
 	while (i < data->rows)
 	{
@@ -37,6 +55,7 @@ static void	init(t_data *data, char **argv)
 		ft_bzero(data->map[i], sizeof(int) * data->cols);
 		i++;
 	}
+	init_visible(data);
 	load_texture(data);
 }
 
@@ -48,9 +67,11 @@ int	main(int argc, char **argv)
 	if (arg_check(argc, argv) == 0)
 		return (0);
 	init(&data, argv);
-	mlx_hook(data.win, 17, 0, close_window, &data);
-	place_mines(&data);
+	load_map(&data);
 	print_map(&data);
+	mlx_hook(data.win, 17, 0, close_window, &data);
+	mlx_key_hook(data.win, &key_hook, &data);
+	mlx_mouse_hook(data.win, &mouse_hook, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }
