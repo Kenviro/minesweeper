@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minesweeper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:50:14 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/20 10:15:44 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:15:16 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	init(t_data *data, char **argv)
 	data->mines = ft_atoi(argv[3]);
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, \
-		data->rows * 64, data->cols * 64, "Minesweeper");
+		data->cols * 64, data->rows * 64, "Minesweeper");
 	data->texture = (t_texture *)malloc(sizeof(t_texture));
 	if (!data->texture)
 		print_error("Failed to allocate memory for texture", data);
@@ -67,7 +67,6 @@ int	main(int argc, char **argv)
 	if (arg_check(argc, argv) == 0)
 		return (0);
 	init(&data, argv);
-	load_map(&data);
 	print_map(&data);
 	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_key_hook(data.win, &key_hook, &data);

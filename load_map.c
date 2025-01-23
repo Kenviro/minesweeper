@@ -3,28 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   load_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:36:13 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/20 16:16:35 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:20:15 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minesweeper.h"
 
-static void	place_mines(t_data *data)
+static void	place_mines(t_data *data, int i, int j)
 {
 	int	placed_mines;
 	int	random_cols;
 	int	random_rows;
 
+	if (data->first_click == 0)
+		data->first_click = 1;
+	else 
+	{
+		(void)i;
+		(void)j;
+	}
 	placed_mines = 0;
 	srand(time(NULL));
 	while (placed_mines < data->mines)
 	{
 		random_rows = rand() % data->rows;
 		random_cols = rand() % data->cols;
-		if (data->map[random_rows][random_cols] != -1)
+		if (data->map[random_rows][random_cols] != -1 && \
+				(random_rows != i || random_cols != j))
 		{
 			data->map[random_rows][random_cols] = -1;
 			placed_mines++;
@@ -96,9 +104,9 @@ static void	place_empty(t_data *data)
 	}
 }
 
-void	load_map(t_data *data)
+void	load_map(t_data *data, int i, int j)
 {
 	place_empty(data);
-	place_mines(data);
+	place_mines(data, i, j);
 	place_nbrs(data);
 }

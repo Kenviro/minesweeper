@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minesweeper.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:31:03 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/20 16:10:48 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:16:57 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_data
 	int			mines;
 	int			lose;
 	int			flag;
+	int			first_click;
 	int			**map;
 	int			**visible;
 	t_texture	*texture;
@@ -67,7 +68,7 @@ void	load_texture(t_data *data);
 void	print_map(t_data *data);
 
 // load_map.c
-void	load_map(t_data *data);
+void	load_map(t_data *data, int i, int j);
 
 // key_hook.c
 int		key_hook(int keycode, t_data *data);

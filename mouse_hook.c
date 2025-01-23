@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:09:11 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/20 16:31:43 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:20:59 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ static void	left_click(int x, int y, t_data *data)
 
 	i = y / 64;
 	j = x / 64;
+	if (data->first_click == 0)
+	{
+		data->first_click = 1;
+		load_map(data, i, j);
+	}
 	if (data->lose == 1 || data->flag == data->mines || \
 				data->visible[i][j] == 2)
 		return ;

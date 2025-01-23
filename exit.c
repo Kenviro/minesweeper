@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:09:31 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/17 18:27:26 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/23 11:31:49 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	free_texture(t_data *data)
 	mlx_destroy_image(data->mlx, texture->exploded);
 	mlx_destroy_image(data->mlx, texture->flag);
 	mlx_destroy_image(data->mlx, texture->face);
+	mlx_destroy_image(data->mlx, texture->empty);
 	free(texture);
 }
 
