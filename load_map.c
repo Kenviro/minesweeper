@@ -6,7 +6,7 @@
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:36:13 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/23 11:20:15 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/23 11:45:15 by kilian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	place_mines(t_data *data, int i, int j)
 
 	if (data->first_click == 0)
 		data->first_click = 1;
-	else 
+	else
 	{
 		(void)i;
 		(void)j;
