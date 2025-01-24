@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minesweeper.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:31:03 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/23 11:16:57 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/24 15:06:22 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ typedef struct s_data
 	int			**visible;
 	t_texture	*texture;
 }				t_data;
+
+//mine_sweeper.c
+int		main(int argc, char **argv);
 
 // arg.c
 int		arg_check(int argc, char **argv);
