@@ -2,14 +2,14 @@ NAME = minesweeper
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 
-SRC = 	minesweeper.c \
-		arg.c \
-		exit.c \
-		load_sprite.c \
-		map.c \
-		load_map.c \
-		key_hook.c \
-		mouse_hook.c \
+SRC = 	src/minesweeper.c \
+		src/arg.c \
+		src/exit.c \
+		src/load_sprite.c \
+		src/map.c \
+		src/load_map.c \
+		src/key_hook.c \
+		src/mouse_hook.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -19,7 +19,7 @@ LIBFT = $(LIBFTDIR)libft.a
 MLXDIR = minilibx-linux/
 MLX = $(MLXDIR)libmlx.a
 
-HEADER = minesweeper.h
+HEADER = src/minesweeper.h
 
 GREEN = \033[32m
 RESET = \033[0m
