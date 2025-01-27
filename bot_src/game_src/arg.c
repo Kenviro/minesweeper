@@ -6,11 +6,11 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 14:55:47 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/17 19:38:15 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:02:15 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minesweeper.h"
+#include "../bot.h"
 
 static int	ft_is_arg_digit(char **argv)
 {

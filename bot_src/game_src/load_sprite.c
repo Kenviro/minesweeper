@@ -6,11 +6,11 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:22:30 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/18 14:50:07 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:02:15 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minesweeper.h"
+#include "../bot.h"
 
 static void	load_tile2(t_texture *texture, void *mlx, t_data *data)
 {

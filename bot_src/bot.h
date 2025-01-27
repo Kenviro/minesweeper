@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minesweeper.h                                      :+:      :+:    :+:   */
+/*   bot.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINESWEEPER_H
-# define MINESWEEPER_H
+#ifndef BOT_H
+# define BOT_H
 
 # include "../minilibx-linux/mlx.h"
 # include "../Libft/libft.h"
@@ -79,7 +79,8 @@ int		key_hook(int keycode, t_data *data);
 void	win(t_data *data);
 void	lost(t_data *data);
 
-// mouse_hook.c
-int		mouse_hook(int button, int x, int y, t_data *data);
+// bot_action.c
+void	left_click(int j, int i, t_data *data);
+void	right_click(int j, int i, t_data *data);
 
 #endif

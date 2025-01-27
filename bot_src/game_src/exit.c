@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 17:09:31 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/23 11:31:49 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:02:15 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minesweeper.h"
+#include "../bot.h"
 
 void	print_error(char *error, t_data *data)
 {
@@ -50,9 +50,11 @@ void	free_all(t_data *data)
 	while (i < data->rows)
 	{
 		free(data->map[i]);
+		free(data->visible[i]);
 		i++;
 	}
 	free(data->map);
+	free(data->visible);
 	free_texture(data);
 	mlx_destroy_window(data->mlx, data->win);
 	mlx_destroy_display(data->mlx);

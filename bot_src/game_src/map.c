@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 18:19:58 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/23 11:13:00 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:02:15 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minesweeper.h"
+#include "../bot.h"
 
 static void	p_nbrs(t_data *data, int i, int j)
 {

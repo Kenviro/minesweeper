@@ -6,11 +6,11 @@
 /*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:36:13 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/24 15:15:30 by ktintim-         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:02:15 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minesweeper.h"
+#include "../bot.h"
 
 static void	place_mines(t_data *data, int i, int j)
 {

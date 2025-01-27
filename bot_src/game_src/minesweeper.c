@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   minesweeper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 10:50:14 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/26 14:07:58 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:36:02 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minesweeper.h"
+#include "../bot.h"
 
 static void	init_visible(t_data *data)
 {
@@ -71,7 +71,6 @@ int	main(int argc, char **argv)
 	print_map(&data);
 	mlx_hook(data.win, 17, 0, close_window, &data);
 	mlx_key_hook(data.win, &key_hook, &data);
-	mlx_mouse_hook(data.win, &mouse_hook, &data);
 	mlx_loop(data.mlx);
 	return (0);
 }

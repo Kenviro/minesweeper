@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse_hook.c                                       :+:      :+:    :+:   */
+/*   bot_action.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 15:09:11 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/26 14:27:07 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:36:34 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minesweeper.h"
+#include "../bot.h"
 
 static void	set_visible(int i, int j, t_data *data)
 {
@@ -34,13 +34,8 @@ static void	set_visible(int i, int j, t_data *data)
 	set_visible(i + 1, j + 1, data);
 }
 
-static void	left_click(int x, int y, t_data *data)
+void	left_click(int j, int i, t_data *data)
 {
-	int	i;
-	int	j;
-
-	i = y / 64;
-	j = x / 64;
 	if (data->first_click == 0)
 	{
 		data->first_click = 1;
@@ -60,13 +55,8 @@ static void	left_click(int x, int y, t_data *data)
 		set_visible(i, j, data);
 }
 
-static void	right_click(int x, int y, t_data *data)
+void	right_click(int j, int i, t_data *data)
 {
-	int	i;
-	int	j;
-
-	i = y / 64;
-	j = x / 64;
 	if (data->visible[i][j] == 0)
 	{
 		data->visible[i][j] = 2;
@@ -81,23 +71,3 @@ static void	right_click(int x, int y, t_data *data)
 	}
 }
 
-int	mouse_hook(int button, int x, int y, t_data *data)
-{
-	if (button == 1)
-	{
-		if (mlx_mouse_get_pos(data->mlx, data->win, &x, &y) == 0)
-			print_error("Failed to get mouse position", data);
-		left_click(x, y, data);
-		print_map(data);
-	}
-	else if (button == 3 && data->flag < data->mines && data->lose == 0)
-	{
-		if (mlx_mouse_get_pos(data->mlx, data->win, &x, &y) == 0)
-			print_error("Failed to get mouse position", data);
-		right_click(x, y, data);
-		print_map(data);
-	}
-	if (data->flag == data->mines && data->empty_left == 0)
-		win(data);
-	return (0);
-}

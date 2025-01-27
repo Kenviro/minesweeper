@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kilian <kilian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ktintim- <ktintim-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:53:42 by ktintim-          #+#    #+#             */
-/*   Updated: 2025/01/26 14:14:43 by kilian           ###   ########.fr       */
+/*   Updated: 2025/01/27 14:53:37 by ktintim-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int	key_hook(int keycode, t_data *data)
 		mlx_clear_window(data->mlx, data->win);
 		print_map(data);
 	}
+	printf("Keycode: %d\n", keycode);
 	return (0);
 }
